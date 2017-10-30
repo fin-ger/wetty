@@ -1,7 +1,7 @@
 #! /bin/bash
 
-docker rm git-wetty || true
 docker stop git-wetty || true
+docker rm git-wetty || true
 
 if [[ "$1" == "rebuild" ]]
 then

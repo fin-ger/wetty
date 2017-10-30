@@ -7,6 +7,7 @@ RUN npm install
 RUN apt-get update
 RUN apt-get install -y git tig nano emacs-nox vim
 RUN useradd -d /home/talk -m -s /bin/bash talk
+ADD etc /etc
 RUN echo 'talk:ovgu' | chpasswd
 
 EXPOSE 4123
