@@ -1,8 +1,8 @@
-FROM node:8
+FROM node:8-stretch
 
 ADD etc /etc
 RUN apt-get update
-RUN apt-get install -y git tig nano emacs-nox vim zsh less
+RUN apt-get install -y git tig nano emacs-nox vim zsh less tmux wget curl
 
 ADD . /app
 WORKDIR /app

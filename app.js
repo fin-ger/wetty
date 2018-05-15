@@ -76,7 +76,7 @@ var httpserv;
 
 var app = express();
 app.get('/wetty/ssh/:user', function(req, res) {
-    res.sendfile(__dirname + '/public/wetty/index.html');
+    res.sendfile(__dirname + '/public/index.html');
 });
 app.use('/', express.static(path.join(__dirname, 'public')));
 
