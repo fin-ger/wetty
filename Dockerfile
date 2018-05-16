@@ -2,7 +2,9 @@ FROM node:8-stretch
 
 ADD etc /etc
 RUN apt-get update
-RUN apt-get install -y git tig nano emacs-nox vim zsh less tmux wget curl
+RUN apt-get install -y git tig nano emacs-nox vim zsh less tmux wget curl locales
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+RUN locale-gen
 
 ADD . /app
 WORKDIR /app
@@ -15,6 +17,7 @@ USER talk
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 ADD zshrc /home/talk/.zshrc
 USER root
+RUN chown talk:talk /home/talk/.zshrc
 
 EXPOSE 4123
 
