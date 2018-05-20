@@ -1,4 +1,4 @@
-FROM node:8-stretch
+FROM node:9-stretch
 
 ADD etc /etc
 RUN apt-get update
@@ -9,6 +9,7 @@ RUN locale-gen
 ADD . /app
 WORKDIR /app
 RUN npm install
+RUN npm rebuild
 
 RUN useradd -d /home/talk -m -s /bin/zsh talk
 RUN echo 'talk:ovgu' | chpasswd

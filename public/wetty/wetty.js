@@ -10,9 +10,8 @@ window.addEventListener('resize', () => {
 });
 
 function connect() {
-  var socket = io(location.origin, {path: location.pathname + 'wetty/socket.io'})
+  var socket = io(location.origin, {path: '/wetty/socket.io'})
   Terminal.applyAddon(fit);
-
 
   socket.on('connect', function() {
       term = new Terminal();
